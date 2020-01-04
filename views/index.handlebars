@@ -1,0 +1,38 @@
+<h1>Vegan Burgers!</h1>
+
+<h2>Choose Your Burger</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burgers/burger-block devour=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Sorry All Out of These Burgers:</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burgers/burger-block devour=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Create Your Own Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Cat Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="devoured">Already Eaten?</label><br>
+    <input type="radio" name="devoured" value="1" checked> Eaten!<br>
+    <input type="radio" name="devoured" value="0"> Added to the Menu!
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
